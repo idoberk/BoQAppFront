@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { blue, green, red } from '@mui/material/colors';
+import { blue, green, grey, red } from '@mui/material/colors';
 
 const theme = createTheme({
 	palette: {
@@ -11,6 +11,14 @@ const theme = createTheme({
 		secondary: {
 			main: red[300],
 		},
+		success: {
+			main: green[400],
+			dark: green[600],
+		},
+		cancel: {
+			main: grey[400],
+			dark: grey[600],
+		},
 	},
 	shape: {
 		borderRadius: 10,
@@ -18,41 +26,86 @@ const theme = createTheme({
 	shadows: [
 		'none', // shadows[0]
 		'0 2px 4px rgba(0, 0, 0, 0.1)', // shadows[1]
-		'0 2px 4px rgba(0, 0, 0, 0.1)', // shadows[2]
+		'0 4px 6px rgba(0, 0, 0, 0.15)', // shadows[2]
 		'2px 4px 8px rgba(0, 0, 0, 0.7)', // shadows[3]
 	],
 	components: {
+		// Targets all MUI Button components
 		MuiButton: {
+			// Custom variants: apply styles when specific props match
+			variants: [
+				{
+					props: { role: 'confirm' }, // When role = 'confirm', apply these styles
+					style: ({ theme }) => ({
+						backgroundColor: theme.palette.success.main,
+						'&:hover': {
+							backgroundColor: theme.palette.success.dark,
+						},
+					}),
+				},
+				{
+					props: { role: 'cancel' }, // When role = 'cancel', apply these styles
+					style: ({ theme }) => ({
+						backgroundColor: theme.palette.cancel.main,
+						'&:hover': {
+							backgroundColor: theme.palette.cancel.dark,
+						},
+					}),
+				},
+			],
+			// Apply to ALL buttons regardless of props
 			styleOverrides: {
+				// "root" = the button's outer element
 				root: ({ theme }) => ({
 					borderRadius: `${theme.shape.borderRadius}px`,
 					boxShadow: theme.shadows[3],
 				}),
 			},
 		},
+		// Targets all base input elements (used by TextField, Select, etc...)
 		MuiInputBase: {
 			styleOverrides: {
+				// "input" = the actual <input> element
 				input: ({ theme }) => ({
 					backgroundColor: theme.palette.secondary.main,
 				}),
 			},
 		},
+		// Targets outlined variant inputs specifically (more specific than MuiInputBase)
 		MuiOutlinedInput: {
 			styleOverrides: {
+				// The wrapper element
 				root: {
 					backgroundColor: red[700],
 				},
+				// The <input> inside
 				input: {
-					backgroundColor: 'transparent',
+					backgroundColor: 'transparent', // Transparent so root color shows
 				},
 			},
 		},
+		// Targets helper text below inputs
 		MuiFormHelperText: {
 			styleOverrides: {
 				root: {
 					backgroundColor: green[300],
 					margin: '3px',
 				},
+			},
+		},
+		MuiDataGrid: {
+			styleOverrides: {
+				root: ({ theme }) => ({
+					borderRadius: `${theme.shape.borderRadius}px`,
+					boxShadow: theme.shadows[2],
+					// '& .MuiDataGrid-columnHeader': {
+					// 	backgroundColor: theme.palette.primary.light,
+					// },
+					// // Increase specificity with && or more specific selector
+					// '&& .MuiDataGrid-row:hover': {
+					// 	backgroundColor: 'rgba(223, 10, 10, 0.4)',
+					// },
+				}),
 			},
 		},
 	},
