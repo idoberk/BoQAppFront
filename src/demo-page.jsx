@@ -3,6 +3,7 @@ import Button from '../components-lib/buttons/Button';
 import { FlexContainer } from '../components-lib/containers/FlexContainer';
 import TextField from '../components-lib/inputs/textfields/TextField';
 import DataGrid from '../components-lib/datagrids/DataGrid';
+import Card from '../components-lib/cards/Card';
 
 const ButtonContainer = styled(FlexContainer)`
 	gap: 30px;
@@ -44,19 +45,26 @@ const DemoPage = () => {
 			<h1>Component Library Demo</h1>
 			<section style={{ marginBottom: '2rem' }}>
 				<h2>Buttons:</h2>
-				<ButtonContainer>
+				<ButtonContainer $row>
 					<Button>Default</Button>
 					<Button role='cancel'>Default</Button>
-					<TextField
-						label={'Filled variant'}
-						helperText={'This is a helper text'}
-						variant={'filled'}></TextField>
-					<TextField label={'Outlined variant (default)'}></TextField>
-					<DataGrid
-						rows={rows}
-						columns={columns}
-						checkboxSelection></DataGrid>
 				</ButtonContainer>
+				<h2>Text Inputs:</h2>
+				<TextField
+					label='Filled variant'
+					helperText='This is a helper text'
+					variant='filled'></TextField>
+				<TextField label='Outlined variant (default)'></TextField>
+				<h2>DataGrid:</h2>
+				<DataGrid
+					rows={rows}
+					columns={columns}
+					checkboxSelection></DataGrid>
+				<h2>Card:</h2>
+				<Card>
+					This is a Typography inside a Card. Maybe could be used for
+					the Home Dashboard Menu Panel
+				</Card>
 			</section>
 		</div>
 	);
