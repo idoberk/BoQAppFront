@@ -1,9 +1,15 @@
 import styled from '@emotion/styled';
 import Button from '../components-lib/buttons/Button';
-import { FlexContainer } from '../components-lib/containers/FlexContainer';
+import {
+	CenteredContainer,
+	FlexContainer,
+} from '../components-lib/containers/Containers';
 import TextField from '../components-lib/inputs/textfields/TextField';
 import DataGrid from '../components-lib/datagrids/DataGrid';
 import Card from '../components-lib/cards/Card';
+import SearchBar from '../components-lib/inputs/textfields/SearchBar';
+import Snackbar from '../components-lib/snackbars/Snackbar';
+import Dialog from '../components-lib/dialogs/Dialog';
 
 const ButtonContainer = styled(FlexContainer)`
 	gap: 30px;
@@ -44,28 +50,55 @@ const DemoPage = () => {
 		<div style={{ padding: '2rem' }}>
 			<h1>Component Library Demo</h1>
 			<section style={{ marginBottom: '2rem' }}>
+				<h2>Search bar:</h2>
+				<CenteredContainer>
+					<SearchBar />
+				</CenteredContainer>
 				<h2>Buttons:</h2>
-				<ButtonContainer $row>
+				<FlexContainer $gap='30px'>
 					<Button>Default</Button>
 					<Button role='cancel'>Default</Button>
-				</ButtonContainer>
-				<h2>Text Inputs:</h2>
-				<TextField
-					label='Filled variant'
-					helperText='This is a helper text'
-					variant='filled'></TextField>
-				<TextField label='Outlined variant (default)'></TextField>
+					<h2>Text Inputs:</h2>
+					<TextField
+						label='Filled variant'
+						helperText='This is a helper text'
+						variant='filled'
+					></TextField>
+					<TextField label='Outlined variant (default)'></TextField>
+				</FlexContainer>
 				<h2>DataGrid:</h2>
 				<DataGrid
 					rows={rows}
 					columns={columns}
-					checkboxSelection></DataGrid>
+					checkboxSelection
+				></DataGrid>
 				<h2>Card:</h2>
 				<Card>
 					This is a Typography inside a Card. Maybe could be used for
 					the Home Dashboard Menu Panel
 				</Card>
+				<Snackbar message='I am a Snackbar' />
+				<Dialog dialogTitle='I am a Dialog'></Dialog>
 			</section>
+			{/* <div
+				style={{
+					display: 'flex',
+					height: '400px',
+					border: '1px solid #ccc',
+				}}
+			>
+				<NavBar width={250}>
+					<NavItem
+						href='#'
+						selected
+					>
+						Home
+					</NavItem>
+					<NavSection title='Management'>
+						<NavItem href='#'>Projects</NavItem>
+					</NavSection>
+				</NavBar>
+			</div> */}
 		</div>
 	);
 };

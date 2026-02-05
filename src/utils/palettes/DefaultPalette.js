@@ -108,6 +108,41 @@ const theme = createTheme({
 				}),
 			},
 		},
+		MuiSnackbar: {
+			defaultProps: {
+				slotProps: {
+					content: { elevation: 2 },
+				},
+			},
+			styleOverrides: {
+				root: ({ theme }) => ({
+					boxShadow: theme.shadows[2],
+				}),
+			},
+		},
+		MuiDialog: {
+			defaultProps: {
+				slotProps: {
+					paper: { elevation: 2 },
+				},
+			},
+			styleOverrides: {
+				root: ({ theme }) => ({
+					boxShadow: theme.shadows[2],
+				}),
+			},
+		},
+		MuiDrawer: {
+			styleOverrides: {
+				paper: ({ theme }) => ({
+					backgroundColor: theme.palette.background.paper,
+					borderInlineEnd: `2px solid ${theme.palette.divider}`,
+					width: 'fit-content',
+					position: 'relative',
+					paddingInlineEnd: '25px',
+				}),
+			},
+		},
 	},
 });
 

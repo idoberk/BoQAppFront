@@ -1,0 +1,20 @@
+import styled from '@emotion/styled';
+import { ListItemButton, ListItemIcon, ListItemText } from '@mui/material';
+
+const DefaultNavItem = styled(ListItemButton)``;
+
+const NavItem = ({ href, icon, selected = false, children, ...props }) => {
+	return (
+		<DefaultNavItem
+			component='a'
+			href={href}
+			selected={selected}
+			{...props}
+		>
+			{icon && <ListItemIcon>{icon}</ListItemIcon>}
+			<ListItemText primary={children} />
+		</DefaultNavItem>
+	);
+};
+
+export default NavItem;
