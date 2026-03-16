@@ -1,33 +1,45 @@
-import { ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider, Typography } from '@mui/material';
 import DemoPage from './demo-page';
 import theme from './utils/palettes/defaultPalette';
-import { NavBar, NavItem, NavSection } from '../components-lib/navigation';
+import {
+	NavBar,
+	NavItem,
+	NavSection,
+	Sidebar,
+} from '../components-lib/navigation';
+import DashboardEngine from './dashboard/DashboardEngine';
+import CssClasses from './utils/CssClasses';
 
 const App = () => {
 	return (
 		<ThemeProvider theme={theme}>
-			<div
-				style={{
-					display: 'flex',
-					height: '100vh',
-					overflow: 'hidden',
-				}}
-			>
-				<NavBar>
+			<CssBaseline />
+			<CssClasses>
+				<Sidebar
+					header={
+						<Typography
+							variant='h6'
+							fontWeight='bold'
+						>
+							BoQApp
+						</Typography>
+					}
+				>
 					<NavItem
 						href='#'
 						selected
 					>
 						Home
 					</NavItem>
-					<NavSection title='Management'>
-						<NavItem href='#'>Projects</NavItem>
+					<NavSection title='Projects'>
+						<NavItem href='#'>All Projects</NavItem>
+						<NavItem href='#'>Estimates</NavItem>
 					</NavSection>
-				</NavBar>
-				<main style={{ flex: 1, overflowY: 'auto' }}>
-					<DemoPage />
+				</Sidebar>
+				<main style={{ flex: 1, overflowY: 'auto', minHeight: 0 }}>
+					<DashboardEngine />
 				</main>
-			</div>
+			</CssClasses>
 		</ThemeProvider>
 	);
 };

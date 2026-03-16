@@ -19,6 +19,10 @@ const theme = createTheme({
 			main: grey[400],
 			dark: grey[600],
 		},
+		divider: blue[400],
+		sidebar: {
+			background: '#584848ff',
+		},
 	},
 	shape: {
 		borderRadius: 10,
@@ -76,7 +80,7 @@ const theme = createTheme({
 			styleOverrides: {
 				// The wrapper element
 				root: {
-					backgroundColor: red[700],
+					backgroundColor: 'transparent',
 				},
 				// The <input> inside
 				input: {
@@ -139,7 +143,7 @@ const theme = createTheme({
 					borderInlineEnd: `2px solid ${theme.palette.divider}`,
 					width: 'fit-content',
 					position: 'relative',
-					paddingInlineEnd: '25px',
+					paddingInlineEnd: '15px',
 				}),
 			},
 		},

@@ -8,7 +8,8 @@ const Dialog = ({ dialogTitle, onClose, open }) => {
 	return (
 		<DefaultDialog
 			open={open}
-			onClose={handleClose}>
+			onClose={handleClose}
+		>
 			<DialogTitle>{dialogTitle}</DialogTitle>
 		</DefaultDialog>
 	);

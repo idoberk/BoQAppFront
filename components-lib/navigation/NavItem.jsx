@@ -12,7 +12,10 @@ const NavItem = ({ href, icon, selected = false, children, ...props }) => {
 			{...props}
 		>
 			{icon && <ListItemIcon>{icon}</ListItemIcon>}
-			<ListItemText primary={children} />
+			<ListItemText
+				primary={children}
+				slotProps={{ primary: { noWrap: true } }}
+			/>
 		</DefaultNavItem>
 	);
 };

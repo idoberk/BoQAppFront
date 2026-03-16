@@ -51,7 +51,7 @@ const DemoPage = () => {
 			<h1>Component Library Demo</h1>
 			<section style={{ marginBottom: '2rem' }}>
 				<h2>Search bar:</h2>
-				<CenteredContainer>
+				<CenteredContainer $width='75%'>
 					<SearchBar />
 				</CenteredContainer>
 				<h2>Buttons:</h2>

@@ -7,6 +7,14 @@ const NavBar = ({ width = 250, children, ...props }) => {
 	return (
 		<DefaultNavBar
 			variant='permanent'
+			sx={{
+				'& .MuiDrawer-paper': {
+					position: 'relative',
+					width,
+					height: '100%',
+					overflowY: 'auto',
+				},
+			}}
 			{...props}
 		>
 			<List>{children}</List>
