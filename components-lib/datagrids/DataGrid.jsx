@@ -8,7 +8,9 @@ const DataGrid = ({ rows, columns, ...props }) => {
 		<DefaultDataGrid
 			rows={rows}
 			columns={columns}
-			{...props}></DefaultDataGrid>
+			disableColumnMenu={true}
+			{...props}
+		></DefaultDataGrid>
 	);
 };
 

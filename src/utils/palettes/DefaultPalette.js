@@ -11,13 +11,13 @@ const theme = createTheme({
 		secondary: {
 			main: red[300],
 		},
-		success: {
+		confirm: {
 			main: green[400],
 			dark: green[600],
 		},
 		cancel: {
-			main: grey[400],
-			dark: grey[600],
+			main: red[600],
+			dark: red[800],
 		},
 		divider: blue[400],
 		sidebar: {
@@ -41,9 +41,9 @@ const theme = createTheme({
 				{
 					props: { role: 'confirm' }, // When role = 'confirm', apply these styles
 					style: ({ theme }) => ({
-						backgroundColor: theme.palette.success.main,
+						backgroundColor: theme.palette.confirm.main,
 						'&:hover': {
-							backgroundColor: theme.palette.success.dark,
+							backgroundColor: theme.palette.confirm.dark,
 						},
 					}),
 				},
@@ -133,6 +133,35 @@ const theme = createTheme({
 			styleOverrides: {
 				root: ({ theme }) => ({
 					boxShadow: theme.shadows[2],
+				}),
+			},
+		},
+		MuiDialogTitle: {
+			styleOverrides: {
+				root: ({ theme }) => ({
+					margin: '15px',
+				}),
+			},
+		},
+		MuiDialogContent: {
+			styleOverrides: {
+				root: ({ theme }) => ({
+					display: 'flex',
+					flexDirection: 'column',
+					gap: theme.spacing(3),
+					padding: '15px',
+					paddingTop: '20px !important',
+					margin: '15px',
+					flex: '1 1 auto',
+					overflowY: 'auto',
+				}),
+			},
+		},
+		MuiDialogActions: {
+			styleOverrides: {
+				root: ({ theme }) => ({
+					padding: '15px',
+					justifyContent: 'space-between',
 				}),
 			},
 		},

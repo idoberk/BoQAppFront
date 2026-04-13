@@ -8,7 +8,7 @@ const Card = ({ children, ...props }) => {
 	return (
 		<DefaultCard>
 			<CardContent>
-				<Typography variant='body1'>{children}</Typography>
+				<Typography>{children}</Typography>
 			</CardContent>
 		</DefaultCard>
 	);

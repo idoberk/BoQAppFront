@@ -6,8 +6,8 @@ const DefaultNavItem = styled(ListItemButton)``;
 const NavItem = ({ href, icon, selected = false, children, ...props }) => {
 	return (
 		<DefaultNavItem
-			component='a'
-			href={href}
+			component={href ? 'a' : 'button'}
+			{...(href ? { href } : {})}
 			selected={selected}
 			{...props}
 		>
